@@ -7,9 +7,9 @@ class Actor < ActiveRecord::Base
   end
 
   def list_roles
-    self.characters.map do |character|
-      binding.pry
-      puts "#{character.name} -- #{character.show.name}"
+    roles = []
+    self.characters.each do |character|
+      roles << "#{character.name} -- #{character.show.name}"
     end
   end
 end
